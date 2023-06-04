@@ -1,0 +1,48 @@
+<header class="cabecalho">
+    <img class="cabecalho-img" src="assets/img/loguinho.png">
+    <nav class="cabecalho-menu">
+        <a style="color: #fff" class="cabecalho-item" (click)="changeMenu('menu')">Página Inicial</a>
+        <a style="color: #fff" class="cabecalho-item" (click)="changeMenu('perfil')">Meu Perfil</a>
+        <div class="dropdown">
+          <a (click)="changeMenu('funcionalidade')"><button class="btn">Funcionalidades</button></a>
+          <div class="dropdown">
+            <button class="btn" style="border-left:1px solid navy">
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a (click)="changeMenu('produtividade')">Produtividade</a>
+              <a (click)="changeMenu('zoneamento')">Zoneamento</a>
+              <a (click)="changeMenu('adubacao')">Adubação</a>
+            </div>
+          </div>
+          
+        </div>
+        
+        <label style="color: #ffffff">Bem vind@ {{clienteHeader.nome}}</label>
+          
+    </nav>
+</header>
+
+<div *ngIf="menu">
+  <app-menu [clienteMenu]="clienteHeader"></app-menu>
+</div>
+
+<div *ngIf="showPerfil">
+  <app-perfil [clientePerfil]="clienteHeader"></app-perfil>
+</div>
+
+<div *ngIf="showFuncionalidade">
+  <app-funcionalidade [clienteFuncionalidade]="clienteHeader"></app-funcionalidade>
+</div>
+
+<div *ngIf="showProdutividade">
+  <app-produtividade [clienteProdutividade]="clienteHeader"></app-produtividade>
+</div>
+
+<div *ngIf="showZoneamento">
+  <app-zoneamento [clienteZoneamento]="clienteHeader"></app-zoneamento>
+</div>
+
+<div *ngIf="showAdubacao">
+  <app-adubacao [clienteAdubacao]="clienteHeader"></app-adubacao>
+</div>
